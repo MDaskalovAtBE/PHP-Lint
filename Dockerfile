@@ -10,8 +10,8 @@ LABEL repository="http://github.com/michaelw90/php-lint"
 LABEL homepage="http://github.com/michaelw90/php-lint"
 LABEL maintainer="Michael Wright <php-lint@wserver.co.uk>"
 
+RUN apt-get update && apt-get -y install zip unzip
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
-
 RUN mkdir /phplint && cd /phplint && php /usr/local/bin/composer require overtrue/phplint && ln -s /phplint/vendor/bin/phplint /usr/local/bin/phplint
 
 COPY "entrypoint.sh" "/entrypoint.sh"
