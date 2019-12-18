@@ -10,8 +10,6 @@ LABEL repository="http://github.com/michaelw90/php-lint"
 LABEL homepage="http://github.com/michaelw90/php-lint"
 LABEL maintainer="Michael Wright <php-lint@wserver.co.uk>"
 
-RUN mv composer.phar /usr/local/bin/composer
-
 RUN mkdir /phplint && cd /phplint && composer require overtrue/phplint && ln -s /phplint/vendor/bin/phplint /usr/local/bin/phplint
 
 COPY "entrypoint.sh" "/entrypoint.sh"
